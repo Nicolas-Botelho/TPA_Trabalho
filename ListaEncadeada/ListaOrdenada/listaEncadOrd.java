@@ -27,6 +27,7 @@ public class listaEncadOrd<T> extends listaEncad<T> {
         }
 
         else {
+            //Varre a lista até encontrar a posição para colocar o novo nó
             while (aux != null && comparador.compare(elem, aux.getValor()) < 0) {
                 ant = aux;
                 aux = aux.getProx();
@@ -52,13 +53,20 @@ public class listaEncadOrd<T> extends listaEncad<T> {
     public T pesquisar(T elem) {
         no<T> aux = this.getPrim();
 
+        //A busca a acaba quando chega no fim da lista
+        //ou quando o elemento da lista fica maior do que o elemento buscado
+        //OBS: O segundo caso é possível pois a lista está ordenada
         while (aux != null && comparador.compare(elem, aux.getValor()) >= 0) {
 
-            if (aux.getValor().equals(elem)) return aux.getValor();  //Elemento encontrado
+            //Elemento encontrado
+            if (aux.getValor().equals(elem)) return aux.getValor();
 
+            //Avança para o próximo elemento da lista
             aux = aux.getProx();
         }
 
-        return null;                           //Elemento nao encontrado
+        //Saiu do loop sem encontrar
+        //ou seja, o elemento não está na lista
+        return null;
     }
 }

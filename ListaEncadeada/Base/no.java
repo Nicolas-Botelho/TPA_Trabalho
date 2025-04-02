@@ -25,6 +25,7 @@ public class no<T> {
         this.prox = prox;
     }
 
+    // Um nó é igual a outro nó se os valores dos nós forem iguais
     public boolean equals(no<T> elem) {
         return this.getValor().equals(elem.getValor());
     }

@@ -1,5 +1,6 @@
 package Base;
 
+// Classe abstrata da lista
 public abstract class listaEncad<T> {
 
     protected no<T> prim, ult;
@@ -23,6 +24,7 @@ public abstract class listaEncad<T> {
         return tam;
     }
 
+    // Retorna uma string com todos os elementos da lista
     public String toString() {
             String str = "[";
             no<T> aux = this.prim;
@@ -65,6 +67,4 @@ public abstract class listaEncad<T> {
 
     //     return false;                           //Nao foi possivel excluir
     // }
-
-    
 }
