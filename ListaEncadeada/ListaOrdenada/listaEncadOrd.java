@@ -15,39 +15,34 @@ public class listaEncadOrd<T> extends listaEncad<T> {
     }
 
     public void adicionar(T elem) {
-
         no<T> newNo = new no<T>(elem);
-
+    
         no<T> aux = this.getPrim();
         no<T> ant = null;
-
-        if (this.getPrim() == null) {   //Se a lista estiver vazia
-            this.prim = newNo;          //NewNo é o primeiro
-            this.ult = newNo;           //E o ultimo
-        }
-
-        else {
-            //Varre a lista até encontrar a posição para colocar o novo nó
-            while (aux != null && comparador.compare(elem, aux.getValor()) < 0) {
+    
+        if (this.getPrim() == null) {   // Se a lista estiver vazia
+            this.prim = newNo;          // NewNo é o primeiro
+            this.ult = newNo;           // E o último
+        } else {
+            // Varre a lista até encontrar a posição para colocar o novo nó
+            while (aux != null && comparador.compare(elem, aux.getValor()) > 0) {
                 ant = aux;
                 aux = aux.getProx();
             }
-
-            if (aux == this.getPrim()) {        //Se é o primeiro da lista
-                newNo.setProx(this.getPrim());  //NewNo fica antes do primeiro antigo
-                this.prim = newNo;              //E é o novo primeiro
-            }
-            else if (aux == null) {             //Se é o ultimo da lista
-                this.getUlt().setProx(newNo);   //NewNo fica depois do ultimo antigo
-                this.ult = newNo;               //E é o novo ultimo
-            }
-            else {                              //Se for qualquer outro
-                ant.setProx(newNo);             //NewNo fica depois de ant
-                newNo.setProx(aux);             //E antes de aux
+    
+            if (aux == this.getPrim()) {        // Se é o primeiro da lista
+                newNo.setProx(this.getPrim());  // NewNo fica antes do primeiro antigo
+                this.prim = newNo;              // E é o novo primeiro
+            } else if (aux == null) {           // Se é o último da lista
+                this.getUlt().setProx(newNo);   // NewNo fica depois do último antigo
+                this.ult = newNo;               // E é o novo último
+            } else {                            // Se for qualquer outro
+                ant.setProx(newNo);             // NewNo fica depois de ant
+                newNo.setProx(aux);             // E antes de aux
             }
         }
-
-        this.tam ++;
+    
+        this.tam++;
     }
 
     public T pesquisar(T elem) {
