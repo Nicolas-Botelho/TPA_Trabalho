@@ -1,10 +1,11 @@
 import java.util.Comparator;
 import java.util.Scanner;
+
+import Leitor_Gerador.GeradorArquivosOrdenados;
+import Leitor_Gerador.LeitorArquivos;
 import ListaNaoOrdenada.listaEncadNaoOrd;
 import ListaOrdenada.listaEncadOrd;
 import TesteAluno.Aluno;
-import TesteAluno.GeradorArquivosOrdenados;
-import TesteAluno.LeitorArquivos;
 
 public class Program {
     public static void main(String[] args) {
@@ -36,31 +37,45 @@ public class Program {
 
             int matricula;
             Aluno alunoPesquisado;
+            long t1, t2, delta;
+
             switch (opcao) {
                 case 1:
                     System.out.print("Digite a matrícula do aluno: ");
                     matricula = scanner.nextInt();
 
+                    t1 = System.currentTimeMillis();
                     alunoPesquisado = listaNaoOrd.pesquisar(new Aluno(matricula, "", 0));
+                    t2 = System.currentTimeMillis();
+
+                    delta = t2 - t1;
                     
                     if (alunoPesquisado != null) {
                         System.out.println("Aluno encontrado: " + alunoPesquisado);
                     } else {
                         System.out.println("Aluno não encontrado na lista não ordenada.");
                     }
+
+                    System.out.println("A busca levou " + delta + " milisegundos.");
                     
                     break;
                 case 2:
                     System.out.print("Digite a matrícula do aluno: ");
                     matricula = scanner.nextInt();
 
+                    t1 = System.currentTimeMillis();
                     alunoPesquisado = listaOrd.pesquisar(new Aluno(matricula, "", 0));
+                    t2 = System.currentTimeMillis();
+
+                    delta = t2 - t1;
 
                     if (alunoPesquisado != null) {
                         System.out.println("Aluno encontrado: " + alunoPesquisado);
                     } else {
                         System.out.println("Aluno não encontrado na lista ordenada.");
                     }
+
+                    System.out.println("A busca levou " + delta + " milisegundos.");
                     
                     break;
                 case 3:

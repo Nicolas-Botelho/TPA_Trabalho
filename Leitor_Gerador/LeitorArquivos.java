@@ -1,4 +1,4 @@
-package TesteAluno;
+package Leitor_Gerador;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import ListaNaoOrdenada.listaEncadNaoOrd;
 import ListaOrdenada.listaEncadOrd;
+import TesteAluno.Aluno;
 
 public class LeitorArquivos {
     private static final String NOME_ARQUIVO = "alunosOrdenados.txt";

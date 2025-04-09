@@ -1,4 +1,4 @@
-package TesteAluno;
+package Leitor_Gerador;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
