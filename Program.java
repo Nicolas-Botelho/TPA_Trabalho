@@ -2,6 +2,9 @@ import java.util.Comparator;
 import java.util.Scanner;
 import ListaNaoOrdenada.listaEncadNaoOrd;
 import ListaOrdenada.listaEncadOrd;
+import TesteAluno.Aluno;
+import TesteAluno.GeradorArquivosOrdenados;
+import TesteAluno.LeitorArquivos;
 
 public class Program {
     public static void main(String[] args) {
