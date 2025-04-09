@@ -23,7 +23,6 @@ public class Program {
         // Inclui um loop mostrando o menu de pesquisa
         // Sugestões de melhorias:
         // - Preencher a lista ordenada demora muito 💀💀💀, talvez buscar outra forma de fazer isso.
-        // - Organizar os arquivos e as pastas.
 
         while(true) {
             System.out.println("\n--- Menu:");
