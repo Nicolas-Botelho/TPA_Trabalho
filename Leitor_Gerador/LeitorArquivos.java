@@ -4,14 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import ListaNaoOrdenada.listaEncadNaoOrd;
-import ListaOrdenada.listaEncadOrd;
+import Base.listaEncad;
 import TesteAluno.Aluno;
 
 public class LeitorArquivos {
     private static final String NOME_ARQUIVO = "alunosOrdenados.txt";
     
-    public static void read(listaEncadNaoOrd<Aluno> listaNaoOrd, listaEncadOrd<Aluno> listaOrd) {
+    public static void read(listaEncad<Aluno> l) {
         try (BufferedReader reader = new BufferedReader(new FileReader(NOME_ARQUIVO))) {
             int numRegistros = Integer.parseInt(reader.readLine().trim());
             System.out.println("Número de registros: " + numRegistros);
@@ -25,8 +24,7 @@ public class LeitorArquivos {
                 
                 Aluno aluno = new Aluno(matricula, nome, nota);
                 
-                listaOrd.adicionar(aluno);
-                listaNaoOrd.adicionar(aluno);
+                l.adicionar(aluno);
             }
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());

@@ -17,7 +17,22 @@ public class Program {
         listaEncadNaoOrd<Aluno> listaNaoOrd = new listaEncadNaoOrd<Aluno>();
         listaEncadOrd<Aluno> listaOrd = new listaEncadOrd<Aluno>(matriculaComparator);
 
-        LeitorArquivos.read(listaNaoOrd, listaOrd);
+        long t1, t2, delta;
+
+        t1 = System.currentTimeMillis();
+        LeitorArquivos.read(listaNaoOrd);
+        t2 = System.currentTimeMillis();
+
+        delta = t2 - t1;
+        System.out.println("A leitura da lista não ordenada levou " + delta + " milisegundos.");
+
+        t1 = System.currentTimeMillis();
+        LeitorArquivos.read(listaOrd);
+        t2 = System.currentTimeMillis();
+
+        delta = t2 - t1;
+        System.out.println("A leitura da lista ordenada levou " + delta + " milisegundos.");
+
         
         // *LEIA*
         // Adicionado o teste de pesquisa na lista não ordenada e ordenada
@@ -37,7 +52,7 @@ public class Program {
 
             int matricula;
             Aluno alunoPesquisado;
-            long t1, t2, delta;
+            
 
             switch (opcao) {
                 case 1:

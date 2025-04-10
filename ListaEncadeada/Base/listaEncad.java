@@ -24,6 +24,10 @@ public abstract class listaEncad<T> {
         return tam;
     }
 
+    public abstract void adicionar(T elem);
+
+    public abstract T pesquisar(T elem);
+
     // Retorna uma string com todos os elementos da lista
     public String toString() {
             String str = "[";
