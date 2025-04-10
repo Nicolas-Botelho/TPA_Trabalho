@@ -12,7 +12,7 @@ import TesteAluno.Aluno;
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+        ThreadMXBean bean = ManagementFactory.getThreadMXBean(); // Calcula o tempo da thread na CPU
 
         GeradorArquivosOrdenados.gerar();
 
@@ -35,13 +35,6 @@ public class Program {
 
         delta = t2 - t1;
         System.out.println("A leitura da lista ordenada levou " + delta/1000000 + " milisegundos.");
-
-        
-        // *LEIA*
-        // Adicionado o teste de pesquisa na lista não ordenada e ordenada
-        // Inclui um loop mostrando o menu de pesquisa
-        // Sugestões de melhorias:
-        // - Preencher a lista ordenada demora muito 💀💀💀, talvez buscar outra forma de fazer isso.
 
         while(true) {
             System.out.println("\n--- Menu:");
