@@ -1,5 +1,7 @@
 import java.util.Comparator;
 import java.util.Scanner;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
 
 import Leitor_Gerador.GeradorArquivosOrdenados;
 import Leitor_Gerador.LeitorArquivos;
@@ -10,6 +12,7 @@ import TesteAluno.Aluno;
 public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ThreadMXBean bean = ManagementFactory.getThreadMXBean();
 
         GeradorArquivosOrdenados.gerar();
 
@@ -19,19 +22,19 @@ public class Program {
 
         long t1, t2, delta;
 
-        t1 = System.currentTimeMillis();
+        t1 = bean.getCurrentThreadCpuTime();
         LeitorArquivos.read(listaNaoOrd);
-        t2 = System.currentTimeMillis();
+        t2 = bean.getCurrentThreadCpuTime();
 
         delta = t2 - t1;
-        System.out.println("A leitura da lista não ordenada levou " + delta + " milisegundos.");
+        System.out.println("A leitura da lista não ordenada levou " + delta/1000000 + " milisegundos.");
 
-        t1 = System.currentTimeMillis();
+        t1 = bean.getCurrentThreadCpuTime();
         LeitorArquivos.read(listaOrd);
-        t2 = System.currentTimeMillis();
+        t2 = bean.getCurrentThreadCpuTime();
 
         delta = t2 - t1;
-        System.out.println("A leitura da lista ordenada levou " + delta + " milisegundos.");
+        System.out.println("A leitura da lista ordenada levou " + delta/1000000 + " milisegundos.");
 
         
         // *LEIA*
@@ -59,9 +62,9 @@ public class Program {
                     System.out.print("Digite a matrícula do aluno: ");
                     matricula = scanner.nextInt();
 
-                    t1 = System.currentTimeMillis();
+                    t1 = bean.getCurrentThreadCpuTime();
                     alunoPesquisado = listaNaoOrd.pesquisar(new Aluno(matricula, "", 0));
-                    t2 = System.currentTimeMillis();
+                    t2 = bean.getCurrentThreadCpuTime();
 
                     delta = t2 - t1;
                     
@@ -71,16 +74,16 @@ public class Program {
                         System.out.println("Aluno não encontrado na lista não ordenada.");
                     }
 
-                    System.out.println("A busca levou " + delta + " milisegundos.");
+                    System.out.println("A busca levou " + delta/1000000 + " milisegundos.");
                     
                     break;
                 case 2:
                     System.out.print("Digite a matrícula do aluno: ");
                     matricula = scanner.nextInt();
 
-                    t1 = System.currentTimeMillis();
+                    t1 = bean.getCurrentThreadCpuTime();
                     alunoPesquisado = listaOrd.pesquisar(new Aluno(matricula, "", 0));
-                    t2 = System.currentTimeMillis();
+                    t2 = bean.getCurrentThreadCpuTime();
 
                     delta = t2 - t1;
 
@@ -90,7 +93,7 @@ public class Program {
                         System.out.println("Aluno não encontrado na lista ordenada.");
                     }
 
-                    System.out.println("A busca levou " + delta + " milisegundos.");
+                    System.out.println("A busca levou " + delta/1000000 + " milisegundos.");
                     
                     break;
                 case 3:
