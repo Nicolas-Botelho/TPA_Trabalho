@@ -25,14 +25,14 @@ public class Program {
         t2 = System.nanoTime();
 
         delta = t2 - t1;
-        System.out.println("A leitura da lista não ordenada levou " + delta + " milisegundos.");
+        System.out.println("A leitura da lista não ordenada levou " + delta + " nanosegundos.");
 
         t1 = System.nanoTime();
         LeitorArquivos.read(listaOrd);
         t2 = System.nanoTime();
 
         delta = t2 - t1;
-        System.out.println("A leitura da lista ordenada levou " + delta + " milisegundos.");
+        System.out.println("A leitura da lista ordenada levou " + delta + " nanosegundos.");
 
         while(true) {
             System.out.println("\n--- Menu:");
@@ -65,7 +65,7 @@ public class Program {
                         System.out.println("Aluno não encontrado na lista não ordenada.");
                     }
 
-                    System.out.println("A busca levou " + delta + " milisegundos.");
+                    System.out.println("A busca levou " + delta + " nanosegundos.");
                     
                     break;
                 case 2:
@@ -84,7 +84,7 @@ public class Program {
                         System.out.println("Aluno não encontrado na lista ordenada.");
                     }
 
-                    System.out.println("A busca levou " + delta + " milisegundos.");
+                    System.out.println("A busca levou " + delta + " nanosegundos.");
                     
                     break;
                 case 3:
